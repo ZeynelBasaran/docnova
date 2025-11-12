@@ -29,10 +29,10 @@ const MainLayout = () => {
 
                     {isAuthenticated && (
                         <Button
-                            type="text" 
-                            white     
-                            icon={<LogoutOutlined />} 
-                            onClick={logoutUser} 
+                            type="text"
+                            color="outlined" variant="solid"
+                            icon={<LogoutOutlined />}
+                            onClick={logoutUser}
                         >
                             {t('offline')}
                         </Button>

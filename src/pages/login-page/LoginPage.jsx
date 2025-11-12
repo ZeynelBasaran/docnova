@@ -22,8 +22,9 @@ function LoginPage() {
   }, [isAuthenticated, user, navigate]);
 
   const onFinish = async (values) => {
-    const newC = {email:"devmelauser@yopmail.com",password:"Work123???"};
+    const newC = {email:`${import.meta.env.VITE_MAIL}`,password:`${import.meta.env.VITE_PASSWORD}`};
 
+    console.log(newC)
     const { success } = await loginUser(newC);
     if (success) {
       message.success(t('login_success'));
