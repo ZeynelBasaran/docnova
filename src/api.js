@@ -17,7 +17,7 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     // İstek gönderilmeden önce yapılacak işlemler Token ekleme vs.
-    console.log(config)
+    
     // const token = localStorage.getItem('token');
     // if (token) {
     //   config.headers.Authorization = `Bearer ${token}`;
