@@ -16,7 +16,8 @@ const Details = () => {
   const navigate = useNavigate();
 
   if (!selectedInvoice) {
-    return <Navigate to="/invoices" replace />;
+    const lang = i18n.language.split('-')[0];
+    return <Navigate to={`/${lang}/invoices`} replace />;
   }
 
 

@@ -7,7 +7,7 @@ import { Button } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';
 
 const MainLayout = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const { isAuthenticated } = useSelector((state) => state.auth);
     const { logoutUser } = useAuthActions();
 
@@ -16,7 +16,7 @@ const MainLayout = () => {
         <div className="min-h-screen w-full flex flex-col items-center bg-gray-50">
         
             <header className="w-full bg-[#1677ff] text-white h-auto min-h-[80px] md:h-[100px] max-w-[1440px] lg:px-20 md:px-8 p-4 flex justify-between items-center rounded-b-sm shrink-0 transition-all duration-300" >
-                <Link to="/invoices" className="hover:underline">
+                <Link to={`/${i18n.language.split('-')[0]}/invoices`} className="hover:underline">
                     <div className="text-2xl text-white font-bold">
                         Melasoft
                     </div>

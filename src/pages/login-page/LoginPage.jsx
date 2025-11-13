@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 
 
 function LoginPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [form] = Form.useForm();
   const { loginUser } = useAuthActions();
   const { loading,isAuthenticated,user } = useSelector((state) => state.auth);
@@ -18,9 +18,10 @@ function LoginPage() {
 
   useEffect(() => {
     if (isAuthenticated && user) {
-      navigate("/invoices");
+      const lang = i18n.language.split('-')[0];
+      navigate(`/${lang}/invoices`);
     }
-  }, [isAuthenticated, user, navigate]);
+  }, [isAuthenticated, user, navigate, i18n.language]);
 
  
 
@@ -30,7 +31,8 @@ function LoginPage() {
     if (response.success) {
       messageApi.success(t('login_success'));      
       setTimeout(() => {
-        navigate("/invoices");
+        const lang = i18n.language.split('-')[0];
+        navigate(`/${lang}/invoices`);
       }, 1000);
       
     } else {

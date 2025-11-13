@@ -24,7 +24,8 @@ const InvoicesPage = () => {
 
   const handleDetail = (record) => {
     dispatch(setSelectedInvoice(record));
-    navigate(`/invoices/${record.id}`);
+    const lang = i18n.language.split('-')[0];
+    navigate(`/${lang}/invoices/${record.id}`);
   };
 
   const formatDate = (dateString) => {
