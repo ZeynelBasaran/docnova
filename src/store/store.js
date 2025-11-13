@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './auth/authSlice';
+import invoiceReducer from './invoice/invoiceSlice';
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
+    invoice: invoiceReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

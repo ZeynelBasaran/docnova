@@ -16,12 +16,15 @@ const api = axios.create({
 // İstek öncesi interceptor
 api.interceptors.request.use(
   (config) => {
-    // İstek gönderilmeden önce yapılacak işlemler Token ekleme vs.
+
+    // Token'ı localStorage'dan al
+    const token = localStorage.getItem('token'); 
     
-    // const token = localStorage.getItem('token');
-    // if (token) {
-    //   config.headers.Authorization = `Bearer ${token}`;
-    // }
+    if (token) {
+      config.headers['R-Auth'] = token;
+    }
+
+    
     return config;
   },
   (error) => {

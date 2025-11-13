@@ -16,8 +16,10 @@ function LoginPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+
     if (isAuthenticated && user) {
       navigate("/invoices");
+      console.log("deneme",isAuthenticated, user);
     }
   }, [isAuthenticated, user, navigate]);
 

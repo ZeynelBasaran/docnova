@@ -12,11 +12,11 @@ export const useAuthActions = () => {
     try {
       const response = await postData("/auth/login/dev", credentials);
       
-      console.log(response);
       const { user, jwt } = response;
-      
+
       localStorage.setItem('user', user);
       localStorage.setItem('token', jwt);
+      
       
       dispatch(loginSuccess({ user, jwt }));
       navigate('/invoices');

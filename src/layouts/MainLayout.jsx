@@ -9,11 +9,11 @@ import { LogoutOutlined } from '@ant-design/icons';
 
 const MainLayout = () => {
     const { t } = useTranslation();
-    const { isAuthenticated, } = useSelector((state) => state.auth);
+    const { isAuthenticated } = useSelector((state) => state.auth);
     const { logoutUser } = useAuthActions();
 
 
-
+    
 
 
     return (
