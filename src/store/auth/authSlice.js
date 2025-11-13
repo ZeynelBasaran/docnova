@@ -3,10 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 
+// httpOnly cookie kullanımı için localStorage'dan sadece user bilgisini yükle
+// Token artık httpOnly cookie'de saklanıyor
 const initialState = {
   user: JSON.parse(localStorage.getItem("user")) || null,
-  token: localStorage.getItem("token") || null,
-  isAuthenticated: JSON.parse(localStorage.getItem("isActive")) || false,
+  isAuthenticated: !!JSON.parse(localStorage.getItem("user") || "null"),
   loading: false,
   error: null,
 };
@@ -22,31 +23,31 @@ const authSlice = createSlice({
     loginSuccess: (state, action) => {
       state.loading = false;
       state.isAuthenticated = true;
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+      // user objesi içinde jwt bilgisi de olmalı (backend'den gelen response'a göre)
+      // httpOnly cookie backend tarafından set edilecek
+      const userWithJwt = {
+        ...action.payload.user,
+        jwt: action.payload.jwt, // jwt'yi user objesine ekle
+      };
+      state.user = userWithJwt;
       state.error = null;
 
-      localStorage.setItem("isActive", true);
-      localStorage.setItem("user", JSON.stringify(action.payload.user));
-      localStorage.setItem("token", action.payload.jwt);
+      // Sadece user bilgisini localStorage'a kaydet (token httpOnly cookie'de)
+      localStorage.setItem("user", JSON.stringify(userWithJwt));
     },
     loginFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
       state.isAuthenticated = false;
       state.user = null;
-      state.token = null;
-      localStorage.removeItem("isActive");
-      
+      localStorage.removeItem("user");
     },
     logout: (state) => {
       state.isAuthenticated = false;
       state.user = null;
-      state.token = null;
       state.error = null;
-      localStorage.removeItem("isActive");
       localStorage.removeItem("user");
-      localStorage.removeItem("token");
+      // httpOnly cookie backend tarafından temizlenecek (logout endpoint'i gerekebilir)
     },
     clearError: (state) => {
       state.error = null;

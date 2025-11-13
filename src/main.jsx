@@ -7,13 +7,10 @@ import './index.css';
 import App from './App.jsx';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import { setStore } from './api.js';
 
-// Check for existing token on app load
-const token = localStorage.getItem('token');
-if (token) {
-  // You might want to validate the token here
-  // and fetch user data if needed
-}
+
+setStore(store); // api.js dosyasına store'u ilet
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

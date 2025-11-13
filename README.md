@@ -4,6 +4,8 @@ A modern web application for managing invoices, built with React, Redux Toolkit,
 
 🔗 **Live Demo:** [https://docnovacase.netlify.app/](https://docnovacase.netlify.app/)
 
+> ⚠️ **Important Note:** This application runs fully functional in the **local environment**. However, the live demo is currently experiencing **CORS (Cross-Origin Resource Sharing)** issues due to backend API restrictions on the hosted domain. For the best experience, please clone the repo and run it locally.
+
 ## 🚀 Features
 
 - User authentication (login/logout)

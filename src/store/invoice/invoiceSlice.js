@@ -5,12 +5,17 @@ export const fetchInvoices = createAsyncThunk(
   "invoice/fetchInvoices",
   async (_, { getState, rejectWithValue }) => {
     try {
-      const token = localStorage.getItem("token");
+      // Token artık Redux store'dan alınacak (user.jwt)
+      // httpOnly cookie API interceptor tarafından otomatik gönderilir
+      const state = getState();
+      const user = state?.auth?.user;
 
-      if (!token) {
-        return rejectWithValue("Token bulunamadı, lütfen giriş yapın.");
+      if (!user || !user.jwt) {
+        return rejectWithValue("Kullanıcı bilgisi bulunamadı, lütfen giriş yapın.");
       }
 
+      // R-Auth header'ı API interceptor tarafından otomatik eklenir (user.jwt ile)
+      // httpOnly cookie de withCredentials: true ile otomatik gönderilir
       const response = await postData(
         "/invoice/search",
         {
@@ -24,16 +29,7 @@ export const fetchInvoices = createAsyncThunk(
           type: null,
           status: null,
           paymentStatus: null,
-          isDeleted: false,
-        },
-        {
-          headers: {
-            "R-Auth": token,
-          },
-        }
-      );
-
-      //console.log("API Response:", response);
+          isDeleted: false,        })
 
       if (response && response.data) {
         return response.data;

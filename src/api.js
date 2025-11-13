@@ -9,22 +9,28 @@ const api = axios.create({
     "Content-Type": "application/json",
     "Accept": "application/json",
   },
-  withCredentials: false, 
+  withCredentials: true, // httpOnly cookie desteği için
   timeout: 10000, 
 });
+
+// Store'a erişim için helper function
+let storeRef = null;
+export const setStore = (store) => {
+  storeRef = store;
+};
 
 // İstek öncesi interceptor
 api.interceptors.request.use(
   (config) => {
-
-    // Token'ı localStorage'dan al
-    const token = localStorage.getItem('token'); 
-    
-    if (token) {
-      config.headers['R-Auth'] = token;
+    // Token'ı Redux store'dan al (user.jwt)
+    if (storeRef) {
+      const state = storeRef.getState();
+      const user = state?.auth?.user;
+      if (user?.jwt) {
+        config.headers['R-Auth'] = user.jwt;
+      }
     }
 
-    
     return config;
   },
   (error) => {
@@ -51,10 +57,16 @@ api.interceptors.response.use(
       
       // Özel hata işleme
       if (error.response.status === 401) {
-        // Yetkilendirme hatası
+        // Yetkilendirme hatası - httpOnly cookie geçersiz veya yok
         console.error('Yetkilendirme hatası: Lütfen giriş yapın');
-        // Örnek: Kullanıcıyı login sayfasına yönlendir
-        // window.location.href = '/login';
+        // Redux store'dan logout action'ını dispatch et
+        if (storeRef) {
+          storeRef.dispatch({ type: 'auth/logout' });
+        }
+        // Kullanıcıyı login sayfasına yönlendir
+        const currentPath = window.location.pathname;
+        const lang = currentPath.split('/')[1] || 'en';
+        window.location.href = `/${lang}`;
       } else if (error.response.status === 403) {
         // Erişim reddedildi
         console.error('Erişim reddedildi: Bu işlem için yetkiniz yok');
@@ -99,4 +111,3 @@ export const postData = (endpoint, data = {}, config = {}) =>
       ...(config.headers || {}),
     },
   }).then(response => response.data);
-
