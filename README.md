@@ -42,20 +42,22 @@ A modern web application for managing invoices, built with React, Redux Toolkit,
    yarn
    ```
 
-3. **Set up environment variables**
-   Create a `.env` file in the root directory and add the following:
-   ```env
-   VITE_MAIL=devmelauser@yopmail.com
-   VITE_PASSWORD=Work123???
-   ```
 
-4. **Start the development server**
+
+3. **Start the development server**
    ```bash
    npm run dev
    # or
    yarn dev
    ```
    The application will be available at `http://localhost:3000`
+
+4. **Login**
+   Use the following credentials to log in to the application:
+   ```
+   devmelauser@yopmail.com
+   Work123???
+   ```
 
 ## 🔐 Login Credentials
 
