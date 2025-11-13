@@ -23,5 +23,71 @@
   "invoices_page_content": "Welcome to the Invoices page. Here you can manage all your invoices.",
   "customers_page_content": "Manage your customers and their information here.",
   "settings_page_content": "Configure your account settings and preferences.",
-  "offline":"Offline"
+  "offline":"Offline",
+  "invoiceName": "Invoice Name",
+  "amount": "Amount (€)",
+  "description": "Description",
+  "action": "Action",
+  "detail": "Detail",
+  "loading": "Loading...",
+  "dataFetchError": "Failed to fetch data" ,
+  "invoice": {
+    "detailsTitle": "Invoice Details",
+    "id": "ID",
+    "infoTitle": "Invoice Information",
+    "issueDate": "Issue Date",
+    "dueDate": "Due Date",
+    "documentType": "Document Type",
+    "format": "Format",
+    "currency": "Currency",
+    "createdDate": "Created Date",
+    "parties": {
+      "supplier": "Supplier",
+      "customer": "Customer",
+      "companyName": "Company Name",
+      "taxId": "Tax ID",
+      "country": "Country",
+      "endpoint": "Endpoint",
+      "customerId": "Customer ID"
+    },
+    "financial": {
+      "statusTitle": "Payment Status",
+      "paymentStatus": "Payment Status",
+      "paidAmount": "Paid Amount",
+      "remainingAmount": "Remaining Amount",
+      "subTotal": "Subtotal (Tax Excl.)",
+      "totalPayable": "Total Payable"
+    },
+    "status": {
+      "SENT": "SENT",
+      "SAVED_AS_ZUGFERD": "SAVED AS ZUGFERD",
+      "ERROR": "ERROR",
+      "OUTGOING": "OUTGOING",
+      "INCOMING": "INCOMING"
+    }
+  },
+  "details": {
+    "listTitle": "Invoice List",
+    "invoiceNumber": "Invoice No",
+    "customer": "Customer / Supplier",
+    "issueDate": "Issue Date",
+    "dueDate": "Due Date",
+    "amount": "Amount",
+    "status": "Status",
+    "type": "Type",
+    "loading": "Loading...",
+    "dataFetchError": "Error fetching data",
+    "detail": "Detail",
+    "actions": "Details",
+    "view": "Details View",
+    "statusMap": {
+      "SENT": "SENT",
+      "SAVED_AS_ZUGFERD": "DRAFT (ZUGFERD)",
+      "ERROR": "ERROR",
+      "PAID": "PAID",
+      "OUTGOING": "OUTGOING",
+      "INCOMING": "INCOMING",
+      "SAVED_AS_PDF": "SAVED AS PDF"
+    }
+  }
 }

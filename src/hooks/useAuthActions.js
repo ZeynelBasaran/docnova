@@ -12,18 +12,21 @@ export const useAuthActions = () => {
     try {
       const response = await postData("/auth/login/dev", credentials);
       
+      
       const { user, jwt } = response;
 
-      localStorage.setItem('user', user);
+     
+      localStorage.setItem('user', JSON.stringify(user));
       localStorage.setItem('token', jwt);
       
-      
       dispatch(loginSuccess({ user, jwt }));
-      navigate('/invoices');
+      
+      
       return { success: true };
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'Login failed';
       dispatch(loginFailure(errorMessage));
+
       return { success: false, error: errorMessage };
     }
   };

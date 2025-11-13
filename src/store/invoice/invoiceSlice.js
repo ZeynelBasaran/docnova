@@ -52,15 +52,19 @@ export const fetchInvoices = createAsyncThunk(
 const invoiceSlice = createSlice({
   name: "invoice",
   initialState: {
-    invoices: [], // Fatura listesi
-    loading: false, // Yükleniyor durumu
-    error: null, // Hata mesajı
+    invoices: [],
+    loading: false, 
+    error: null, 
+    selectedInvoice: null, 
   },
   reducers: {
-    // Gerekirse manuel temizleme işlemi için
+    setSelectedInvoice: (state, action) => {
+      state.selectedInvoice = action.payload;
+    },
     clearInvoices: (state) => {
       state.invoices = [];
       state.error = null;
+      state.selectedInvoice = null; 
     },
   },
   extraReducers: (builder) => {
@@ -83,5 +87,5 @@ const invoiceSlice = createSlice({
   },
 });
 
-export const { clearInvoices } = invoiceSlice.actions;
+export const { clearInvoices,setSelectedInvoice } = invoiceSlice.actions;
 export default invoiceSlice.reducer;

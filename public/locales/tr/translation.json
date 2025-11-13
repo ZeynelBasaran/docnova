@@ -23,5 +23,72 @@
   "invoices_page_content": "Faturalar sayfasına hoş geldiniz. Buradan tüm faturalarınızı yönetebilirsiniz.",
   "customers_page_content": "Müşterilerinizi ve bilgilerini buradan yönetin.",
   "settings_page_content": "Hesap ayarlarınızı ve tercihlerinizi yapılandırın.",
-  "offline":"Çıkış Yap"
+  "offline":"Çıkış Yap",
+  "invoiceName": "Fatura Adı",
+  "amount": "Tutar (€)",
+  "description": "Açıklama",
+  "action": "İşlem",
+  "detail": "Detay",
+  "loading": "Yükleniyor...",
+  "dataFetchError": "Veri alınamadı",
+  "invoice": {
+    "detailsTitle": "Fatura Detayı",
+    "id": "ID",
+    "infoTitle": "Fatura Bilgileri",
+    "issueDate": "Fatura Tarihi",
+    "dueDate": "Son Ödeme Tarihi",
+    "documentType": "Belge Tipi",
+    "format": "Format",
+    "currency": "Para Birimi",
+    "createdDate": "Oluşturulma Tarihi",
+    "parties": {
+      "supplier": "Tedarikçi",
+      "customer": "Müşteri",
+      "companyName": "Firma Adı",
+      "taxId": "Vergi No",
+      "country": "Ülke",
+      "endpoint": "Endpoint",
+      "customerId": "Müşteri ID"
+    },
+    "financial": {
+      "statusTitle": "Ödeme Durumu",
+      "paymentStatus": "Ödeme Statüsü",
+      "paidAmount": "Ödenen Tutar",
+      "remainingAmount": "Kalan Tutar",
+      "subTotal": "Ara Toplam (Vergisiz)",
+      "totalPayable": "Ödenecek Toplam"
+    },
+    "status": {
+      "SENT": "GÖNDERİLDİ",
+      "SAVED_AS_ZUGFERD": "ZUGFERD OLARAK KAYDEDİLDİ",
+      "ERROR": "HATA",
+      "OUTGOING": "GİDEN",
+      "INCOMING": "GELEN"
+    }
+  },
+  "details": {
+    "listTitle": "Fatura Listesi",
+    "invoiceNumber": "Fatura No",
+    "customer": "Müşteri / Tedarikçi",
+    "issueDate": "Fatura Tarihi",
+    "dueDate": "Vade Tarihi",
+    "amount": "Tutar",
+    "status": "Durum",
+    "type": "Tip",
+    "loading": "Yükleniyor...",
+    "dataFetchError": "Veri çekilirken hata oluştu",
+    "detail": "Detay",
+    "actions": "Detaylar",
+    "view": "Detay Gör",
+    "statusMap": {
+      "SENT": "GÖNDERİLDİ",
+      "SAVED_AS_ZUGFERD": "TASLAK (ZUGFERD)",
+      "ERROR": "HATA",
+      "PAID": "ÖDENDİ",
+      "OUTGOING": "GİDEN",
+      "INCOMING": "GELEN",
+      "SAVED_AS_PDF": "PDF KAYDEDİLDİ"
+    }
+  }
+  
 }
