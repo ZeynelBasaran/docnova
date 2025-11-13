@@ -1,18 +1,108 @@
-# React + Vite
+# DocNova - Invoice Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for managing invoices, built with React, Redux Toolkit, and Ant Design.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User authentication (login/logout)
+- Invoice listing with pagination
+- Invoice details view
+- Multi-language support (i18n)
+- Responsive design
+- Modern UI with Ant Design
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- ⚡ React 19
+- 🎨 Ant Design v5
+- 🧭 React Router v7
+- 🏗️ Vite
+- 🌐 i18next for internationalization
+- 🧠 Redux Toolkit for state management
+- 🔄 Axios for API requests
+- 🎨 Tailwind CSS for custom styling
 
-Note: This will impact Vite dev & build performances.
+## 📦 Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js 18+
+- npm or yarn
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone [your-repository-url]
+   cd docnova
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. **Set up environment variables**
+   Create a `.env` file in the root directory and add the following:
+   ```env
+   VITE_MAIL=devmelauser@yopmail.com
+   VITE_PASSWORD=Work123???
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+   The application will be available at `http://localhost:3000`
+
+## 🔐 Login Credentials
+
+Use the following credentials to log in to the application:
+
+- **Email:** devmelauser@yopmail.com
+- **Password:** Work123???
+
+## 📂 Project Structure
+
+```
+src/
+├── api/               # API configuration and services
+├── assets/            # Static assets (images, icons, etc.)
+├── components/        # Reusable UI components
+├── hooks/             # Custom React hooks
+├── i18n/              # Internationalization files
+├── layouts/           # Layout components
+├── pages/             # Page components
+│   ├── auth/          # Authentication pages
+│   └── invoices/      # Invoice management pages
+├── store/             # Redux store configuration
+│   ├── auth/          # Authentication slice
+│   └── invoice/       # Invoice slice
+└── utils/             # Utility functions
+```
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build the application for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview the production build
+
+## 🌐 API Integration
+
+The application communicates with the following API endpoints:
+
+- **Authentication:** `POST /auth/login/dev`
+- **Invoice Search:** `POST /invoice/search`
+
+## 🔧 Troubleshooting
+
+- If you encounter any issues with the API, check the browser's console for error messages
+- Make sure all environment variables are correctly set in the `.env` file
+- Clear your browser cache if you experience any caching issues
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
